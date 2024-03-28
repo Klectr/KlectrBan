@@ -13,4 +13,10 @@ See our [Contribution Guidelines](/CONTRIBUTING.md)_for how to contribute!
 [VS Code](https://code.visualstudio.com/) |or| [NeoVim](https://neovim.io/)\
 [Bun](https://bun.sh/) | [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) | [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 
+---
+
+This was originally a fork of [Kaioban](https://github.com/LankyMoose/kaioken-kanban).
+The live demo of `Kaioban` can be found @ [here](https://www.kaioban.com)
 </div>
+
+
