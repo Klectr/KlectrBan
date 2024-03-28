@@ -55,7 +55,9 @@ export function Board({ boardId }: { boardId: string }) {
       (b) => String(b.id) === boardId || b.uuid === boardId
     )
     if (!board) {
-      window.location = "/"
+      const newLoc = new Location()
+      newLoc.replace("/")
+      window.location = newLoc
       return
     }
     selectBoard(board)

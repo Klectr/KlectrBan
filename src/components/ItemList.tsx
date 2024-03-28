@@ -227,10 +227,10 @@ function Item({ item, idx, listId }: ItemProps) {
   const {
     value: { tags, itemTags },
     removeItemTag
-  } = useBoardTagsStore((state) => [
-    ...state.tags,
-    ...state.itemTags.filter((it) => it.itemId === item.id),
-  ])
+  } = useBoardTagsStore((state) => ({
+    tags: state.tags,
+    itemTags: state.itemTags.filter((it) => it.itemId === item.id)
+  }))
 
   const itemItemTags: Array<Tag | undefined> = useMemo(() => {
     const tagsForThisItem = itemTags.filter((it) => it.itemId === item.id)

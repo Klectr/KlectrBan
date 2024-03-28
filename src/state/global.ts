@@ -10,18 +10,19 @@ import {
 } from "../types"
 import { addBoard as addBoardDb } from "../idb"
 
-export const GlobalCtx = createContext<GlobalState>(null)
-export const GlobalDispatchCtx =
-  createContext<(action: GlobalDispatchAction) => void>(null)
+export const GlobalCtx = createContext<GlobalState | null>(null)
+export const GlobalDispatchCtx = createContext<
+  ((action: GlobalDispatchAction) => void) | null
+>(null)
 
 export function useGlobal() {
   const dispatch = useContext(GlobalDispatchCtx)
 
   const setItemDragTarget = (payload: ItemDragTarget | null) =>
-    dispatch({ type: "SET_ITEM_DRAG_TARGET", payload })
+    dispatch?.({ type: "SET_ITEM_DRAG_TARGET", payload })
 
   const setListDragTarget = (payload: ListDragTarget | null) =>
-    dispatch({ type: "SET_LIST_DRAG_TARGET", payload })
+    dispatch?.({ type: "SET_LIST_DRAG_TARGET", payload })
 
   function handleListDrag(e: MouseEvent, clickedList: ClickedList) {
     if (!clickedList.mouseOffset) throw new Error("no mouseoffset")
@@ -48,7 +49,7 @@ export function useGlobal() {
 
   const addBoard = async () => {
     const newBoard = await addBoardDb()
-    dispatch({ type: "ADD_BOARD", payload: newBoard })
+    dispatch?.({ type: "ADD_BOARD", payload: newBoard })
   }
 
   function handleItemDrag(
@@ -86,27 +87,27 @@ export function useGlobal() {
   }
 
   function setBoardEditorOpen(value: boolean) {
-    dispatch({ type: "SET_BOARD_EDITOR_OPEN", payload: value })
+    dispatch?.({ type: "SET_BOARD_EDITOR_OPEN", payload: value })
   }
 
   return {
     ...useContext(GlobalCtx),
     addBoard,
     setRootElement: (payload: HTMLDivElement) =>
-      dispatch({ type: "SET_ROOT_EL", payload }),
+      dispatch?.({ type: "SET_ROOT_EL", payload }),
     setBoardEditorOpen,
     setDragging: (dragging: boolean) =>
-      dispatch({ type: "SET_DRAGGING", payload: { dragging } }),
+      dispatch?.({ type: "SET_DRAGGING", payload: { dragging } }),
     setClickedItem: (payload: ClickedItem | null) =>
-      dispatch({ type: "SET_CLICKED_ITEM", payload }),
+      dispatch?.({ type: "SET_CLICKED_ITEM", payload }),
     setItemDragTarget,
     handleItemDrag,
     setClickedList: (payload: ClickedList | null) =>
-      dispatch({ type: "SET_CLICKED_LIST", payload }),
+      dispatch?.({ type: "SET_CLICKED_LIST", payload }),
     setListDragTarget,
     handleListDrag,
     updateBoards: (payload: Board[]) =>
-      dispatch({ type: "SET_BOARDS", payload }),
+      dispatch?.({ type: "SET_BOARDS", payload }),
   }
 }
 

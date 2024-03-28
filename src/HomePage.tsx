@@ -19,8 +19,8 @@ export function HomePage() {
   const [showArchived, setShowArchived] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { boards, addBoard } = useGlobal()
-  const activeBoards = boards.filter((b) => !b.archived)
-  const archivedBoards = boards.filter((b) => b.archived)
+  const activeBoards = boards?.filter((b) => !b.archived) ?? []
+  const archivedBoards = boards?.filter((b) => b.archived) ?? []
 
   return (
     <main className="p-8">
@@ -77,7 +77,9 @@ export function HomePage() {
                       const data = await readFile(file)
                       console.log("IMPORT", data)
                       await JsonUtils.import(data)
-                      window.location = "/"
+                      const newLoc = new Location()
+                      newLoc.replace("/")
+                      window.location = newLoc
                     },
                   })
                   input.click()
