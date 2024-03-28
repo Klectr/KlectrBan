@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
-import kaioken from "vite-plugin-kaioken";
+import { defineConfig } from "vite"
+import kaioken from "vite-plugin-kaioken"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,6 +11,7 @@ export default defineConfig({
     jsxFragment: "kaioken.fragment",
     loader: "tsx",
     include: ["**/*.tsx", "**/*.ts", "**/*.jsx", "**/*.js"],
+    sourcemap: false,
   },
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //
@@ -25,4 +26,4 @@ export default defineConfig({
       ignored: ["**/src-tauri/**"],
     },
   },
-});
+})

@@ -6,5 +6,6 @@ type MouseContext = {
   setValue: (payload: Vector2) => void
 }
 
+// @ts-ignore
 export const MouseCtx = createContext<MouseContext>(null)
 export const useMouse = () => useContext(MouseCtx)

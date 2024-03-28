@@ -1,5 +1,5 @@
 {
-  "name": "klectr-template",
+  "name": "klectrban",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1",
-    "kaioken": "^0.10.0"
+    "async-idb-orm": "^1.0.3",
+    "kaioken": "^0.12.1"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1",
@@ -20,6 +21,6 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.0.2",
     "vite": "^5.0.0",
-    "vite-plugin-kaioken": "^0.0.7"
+    "vite-plugin-kaioken": "^0.1.1"
   }
 }

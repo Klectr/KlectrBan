@@ -1,6 +1,5 @@
 import "./HomePage.css"
 import { ActionMenu } from "./components/ActionMenu"
-import { Button } from "./components/atoms/Button"
 import { LogoIcon } from "./components/icons/LogoIcon"
 import { MoreIcon } from "./components/icons/MoreIcon"
 import { JsonUtils } from "./idb"
