@@ -1,6 +1,7 @@
 # Tauri + Vanilla TS
+This project was originally forked from [Kaioban](https://github.com/LankyMoose/kaioken-kanban)
+You can find the live example of `Kaioban` at [here](https://kaioban.com)
 
-This template should help get you started developing with Tauri in vanilla HTML, CSS and Typescript.
 
 ## Recommended IDE Setup
 
