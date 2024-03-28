@@ -1,5 +1,5 @@
 <div align='center'>
-  <img  src="src/assets/logo.png" width="200" height="200">
+  <img  src="src/assets/logo.png" width="400" height="auto">
 
 # KlectrBan
 
