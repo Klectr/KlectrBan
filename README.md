@@ -1,8 +1,16 @@
-# Tauri + Vanilla TS
-This project was originally forked from [Kaioban](https://github.com/LankyMoose/kaioken-kanban)
-You can find the live example of `Kaioban` at [here](https://kaioban.com)
+<div align='center'>
+  <img  src="src/assets/FullLogo_Transparent.png" width="200" height="200">
 
+# KlectrBan
 
-## Recommended IDE Setup
+Your own personal KanBan app for Klecting the task you have aligned
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+### Contributing
+See our [Contribution Guidelines](/CONTRIBUTING.md)_for how to contribute!
+
+### Tools to use
+
+[VS Code](https://code.visualstudio.com/) |or| [NeoVim](https://neovim.io/)\
+[Bun](https://bun.sh/) | [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) | [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+
+</div>
