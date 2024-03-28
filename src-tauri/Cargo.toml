@@ -1,7 +1,7 @@
 [package]
-name = "KlectrTemplate"
+name = "KlectrBan"
 version = "0.0.0"
-description = "A Kaioken Tauri App Template"
+description = "An OSS kanban board"
 authors = ["tristonarmstrong"]
 edition = "2021"
 

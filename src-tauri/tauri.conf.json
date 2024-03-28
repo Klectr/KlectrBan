@@ -7,7 +7,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "KlectrTemplate",
+    "productName": "KlectrBan",
     "version": "0.0.0"
   },
   "tauri": {
@@ -20,7 +20,7 @@
     },
     "windows": [
       {
-        "title": "KlectrTemplate",
+        "title": "KlectrBan",
         "width": 500,
         "height": 500 
       }
@@ -31,7 +31,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.klectr-template.dev",
+      "identifier": "com.klectrban.dev",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
