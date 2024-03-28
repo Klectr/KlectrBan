@@ -7,7 +7,7 @@ document.addEventListener("touchstart", () => {
   document.body.setAttribute("inputMode", "touch")
 })
 
-const root = document.querySelector<HTMLDivElement>("#root")!
+const root = document.querySelector<HTMLDivElement>("#app")!
 mount(App, { root, maxFrameMs: 16 })
 
 document.body.addEventListener("contextmenu", (e) => {
