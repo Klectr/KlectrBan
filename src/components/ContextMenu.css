@@ -1,0 +1,38 @@
+#context-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--dialog-background);
+  width: 200px;
+  box-shadow: 4px 4px 10px -1px rgba(0, 0, 0, 0.5);
+  @apply border rounded-xl p-2;
+}
+
+.context-menu-item {
+  text-align: left;
+  padding: 0.25rem;
+  font-size: small;
+}
+
+button.context-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.context-menu-item:last-child {
+  border-bottom: 0;
+}
+
+.context-menu-item.tag-selector {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.context-menu-item.tag-selector .header {
+  width: 100%;
+  text-align: center;
+  padding: 0.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+

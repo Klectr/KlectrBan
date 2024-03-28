@@ -1,0 +1,178 @@
+.list,
+.add-list {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  transition: margin-left 0.15s ease;
+}
+
+.add-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.add-list button {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+.list {
+  background-color: #ebecf0;
+  overflow: hidden;
+  height: fit-content;
+  cursor: initial;
+  border-radius: var(--radius);
+  box-shadow:
+    0px 1px 1px #091e4240,
+    0px 0px 1px #091e424f;
+}
+
+#board .inner:not(.dragging) .list,
+#board .inner:not(.dragging) .add-list {
+  transition: none;
+}
+
+.list.selected {
+  position: absolute;
+}
+
+.list-header {
+  display: flex;
+  padding-inline: var(--list-header-padding-x);
+  padding-block: var(--list-header-padding-y);
+  gap: 0.5rem;
+  align-items: center;
+  cursor: grab;
+}
+
+.list-header button {
+  cursor: pointer;
+  transition: 0.15s;
+  border-radius: 10px;
+}
+
+.list-header button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.list-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  flex-grow: 1;
+  border: 0;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  margin: 0;
+}
+
+.list-title.editing {
+  cursor: unset;
+}
+
+.list-items-inner {
+  padding-inline: 0.5rem;
+  margin-top: 0.5rem;
+  --items-gap: 0.5rem;
+  position: relative;
+  gap: var(--items-gap);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  transition:
+    background-color 0.15s ease,
+    padding 0.15s ease;
+}
+
+.list-items.dragging .list-items-inner {
+  padding-block: 0.5rem;
+}
+
+.list .list-items.empty .list-items-inner {
+  padding-bottom: calc(var(--selected-item-height) + var(--items-gap));
+}
+
+.list-items.dragging .list-items-inner {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.list-items.dragging .list-items-inner {
+  transition:
+    background-color 0.15s ease,
+    padding 0.15s ease;
+}
+
+.list-items.dragging button {
+  border-color: transparent;
+}
+
+.list-items.last:not(.empty) .list-items-inner {
+  padding-bottom: calc(var(--selected-item-height) + var(--items-gap));
+}
+
+.list-items:not(.dragging) .list-item {
+  transition: none;
+}
+
+.list:hover .list-items:not(.dragging) .list-items-inner,
+[inputMode="touch"] .list .list-items:not(.dragging) .list-items-inner {
+  transition: none;
+}
+
+.list-item {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 0;
+  transition: margin-top 0.15s ease;
+  min-height: var(--item-height);
+  text-align: left;
+  background-color: white;
+  box-shadow:
+    0px 1px 1px #091e4240,
+    0px 0px 1px #091e424f;
+}
+
+.list-item.selected {
+  position: absolute;
+  width: calc(100% - 1rem);
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.list-item * {
+  pointer-events: none;
+}
+
+#item-clone {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+}
+
+#item-clone button {
+  width: 100%;
+  box-shadow: 1px 1px 4px 1px rgba(5px, 5px, 0, 1);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#list-clone {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+}
+
+#list-clone .list {
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 4px 4px 10px -1px rgba(0, 0, 0, 0.15);
+}

@@ -1,21 +1,28 @@
-import { useRef, useState } from "kaioken"
+import { Route, Router } from "kaioken"
+import { GlobalProvider } from "./state/GlobalProvider"
+import { GithubIcon } from "./components/icons/GithubIcon"
+import { BoardPage } from "./BoardPage"
+import { HomePage } from "./HomePage"
 
 export function App() {
-  const [text, setText] = useState('')
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  function _handleTextInputChange(e: Event) {
-    setText((e.target as HTMLInputElement).value)
-    if (inputRef.current) inputRef.current.value = ""
-  }
-
   return (
-    <div className="w-full min-h-screen flex items-center justify-center flex-col">
-      <h1 className="text-5xl text-center">{text}</h1>
-      <br />
-      <br />
-      <input ref={inputRef} className="text-center outline-none text-4xl bg-transparent border-b focus-visible:border-b focus-visible:border-blue-500" placeholder="Put Text Here" onchange={_handleTextInputChange}>Text here</input>
-    </div>
+    <GlobalProvider>
+      <Router>
+        <Route path="/" element={HomePage} />
+        <Route path="/boards/:boardId" element={BoardPage} />
+      </Router>
+      <footer className="fixed bottom-0 right-0 p-3">
+        <div className="text-right flex">
+          <a
+            href="https://github.com/robby6strings/kaioken-kanban"
+            target="_blank"
+            style="color:crimson"
+            className="inline-flex gap-1"
+          >
+            <GithubIcon />
+          </a>
+        </div>
+      </footer>
+    </GlobalProvider>
   )
 }
-

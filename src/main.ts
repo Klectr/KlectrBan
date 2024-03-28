@@ -1,6 +1,21 @@
-import "./styles.css";
-import { mount } from "kaioken";
-import { App } from "./App";
+import "./styles.css"
+import { mount } from "kaioken"
+import { App } from "./App"
+import { useContextMenu } from "./state/contextMenu"
 
-const root = document.getElementById("root")!;
-mount(App, root);
+document.addEventListener("touchstart", () => {
+  document.body.setAttribute("inputMode", "touch")
+})
+
+const root = document.querySelector<HTMLDivElement>("#root")!
+mount(App, { root, maxFrameMs: 16 })
+
+document.body.addEventListener("contextmenu", (e) => {
+  if (useContextMenu.getState().rightClickHandled) {
+    e.preventDefault()
+    useContextMenu.setState((prev) => ({ ...prev, rightClickHandled: false }))
+  }
+  if ("custom-click" in e) {
+    e.preventDefault()
+  }
+})
