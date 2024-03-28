@@ -10,10 +10,8 @@ import {
 } from "../types"
 import { addBoard as addBoardDb } from "../idb"
 
-// @ts-ignore
 export const GlobalCtx = createContext<GlobalState>(null)
 export const GlobalDispatchCtx =
-  // @ts-ignore
   createContext<(action: GlobalDispatchAction) => void>(null)
 
 export function useGlobal() {

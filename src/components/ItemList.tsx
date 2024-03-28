@@ -225,7 +225,6 @@ function Item({ item, idx, listId }: ItemProps) {
   const { clickedItem, setClickedItem, itemDragTarget, setItemDragTarget } =
     useGlobal()
   const {
-    // @ts-ignore
     value: { tags, itemTags },
     removeItemTag
   } = useBoardTagsStore((state) => [
@@ -234,11 +233,8 @@ function Item({ item, idx, listId }: ItemProps) {
   ])
 
   const itemItemTags: Array<Tag | undefined> = useMemo(() => {
-    // @ts-ignore
     const tagsForThisItem = itemTags.filter((it) => it.itemId === item.id)
-    // @ts-ignore
     const mappedTags = tagsForThisItem.map((it) => {
-      // @ts-ignore
       const foundTag = tags.find((t) => t.id === it.tagId)
       if (!foundTag) {
         void removeItemTag(it)

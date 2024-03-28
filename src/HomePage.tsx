@@ -77,7 +77,6 @@ export function HomePage() {
                       const data = await readFile(file)
                       console.log("IMPORT", data)
                       await JsonUtils.import(data)
-                      //@ts-ignore
                       window.location = "/"
                     },
                   })
