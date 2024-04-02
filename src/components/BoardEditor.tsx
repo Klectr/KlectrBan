@@ -20,7 +20,7 @@ export function BoardEditorDrawer() {
   const { boardEditorOpen, setBoardEditorOpen } = useGlobal()
   return (
     <Transition
-      in={boardEditorOpen}
+      in={!!boardEditorOpen}
       timings={[40, 150, 150, 150]}
       element={(state) =>
         state === "exited" ? null : (

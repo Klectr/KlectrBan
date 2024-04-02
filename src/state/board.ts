@@ -8,7 +8,7 @@ import { useListsStore } from "./lists"
 
 export const useBoardStore = createStore(
   { board: null as Board | null },
-  function (set, get) {
+  function(set, get) {
     const selectBoard = async (board: Board) => {
       const setTagsState = useBoardTagsStore.methods.setState
       const setListsState = useListsStore.methods.setState
@@ -29,7 +29,7 @@ export const useBoardStore = createStore(
       const board = get().board!
       const newBoard = { ...board, ...payload }
       const res = await db.updateBoard(newBoard)
-      updateBoards(boards.map((b) => (b.id === res.id ? newBoard : b)))
+      updateBoards(boards?.map((b) => (b.id === res.id ? newBoard : b)) ?? [])
       set({ board: res })
     }
     const deleteBoard = async () => {
@@ -52,7 +52,7 @@ export const useBoardStore = createStore(
         db.deleteBoard(board),
       ])
 
-      updateBoards(boards.filter((b) => b.id !== board.id))
+      updateBoards(boards?.filter((b) => b.id !== board.id) ?? [])
       set({ board: null })
       navigate("/")
     }
@@ -60,7 +60,7 @@ export const useBoardStore = createStore(
       const { boards, updateBoards } = useGlobal()
       const board = get().board!
       const newBoard = await db.archiveBoard(board)
-      updateBoards(boards.map((b) => (b.id === board.id ? newBoard : b)))
+      updateBoards(boards?.map((b) => (b.id === board.id ? newBoard : b)) ?? [])
       navigate("/")
     }
     const restoreBoard = async () => {
