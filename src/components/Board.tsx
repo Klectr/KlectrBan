@@ -51,7 +51,7 @@ export function Board({ boardId }: { boardId: string }) {
 
   useEffect(() => {
     if (!boardsLoaded) return
-    const board = boards.find(
+    const board = boards?.find(
       (b) => String(b.id) === boardId || b.uuid === boardId
     )
     if (!board) {
