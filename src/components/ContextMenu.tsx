@@ -50,6 +50,7 @@ export function ContextMenu() {
               transform: `translate(${click.x}px, ${click.y}px)`,
               transition: "all .15s",
               opacity,
+              zIndex: "99999"
             }}
           >
             <ContextMenuDisplay />
